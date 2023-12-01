@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import com.example.demo.validation.CourseCode;
+
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -20,6 +22,17 @@ public class Customer {
 
     @Pattern(regexp = "^[0-9a-zA-Z]{5}", message = "5 character/digits required")
     private String postalCode;
+
+    @CourseCode(value = "TOP", message = "must start with TOP")
+    private String courseCode;
+
+    public String getCourseCode() {
+        return courseCode;
+    }
+
+    public void setCourseCode(String courseCode) {
+        this.courseCode = courseCode;
+    }
 
     public String getPostalCode() {
         return postalCode;
